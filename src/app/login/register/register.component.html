@@ -1,0 +1,150 @@
+<div class="register-form">
+  <div class="register-form-top">
+    <p>Create an account</p>
+  </div>
+  <div class="row">
+      <form novalidate class="col-md-10" [formGroup]="registerForm" (ngSubmit)="save()">
+          <div class="form-group row mb-2">            
+            <div class="col-md-8">
+              <input class="form-control" id="firstNameId" type="text" placeholder="First Name (required)" formControlName="firstName"
+              [ngClass]="{'is-invalid': (registerForm.get('firstName').touched || registerForm.get('firstName').dirty) && !registerForm.get('firstName').valid}"/>
+            </div>
+          </div>
+          <small *ngIf="(registerForm.get('firstName').errors?.required) && (registerForm.get('firstName').touched || registerForm.get('firstName').dirty) && !registerForm.get('firstName').valid" 
+          class="text-danger error-text">
+              Please enter your first name
+            </small>
+        
+          <div class="form-group row mb-2">         
+            <div class="col-md-8">
+              <input class="form-control" id="LastNameId" type="text" placeholder="Last Name (required)" formControlName="lastName"/>
+            </div>
+          </div>
+          <div class="form-group row mb-2">         
+              <div class="col-md-8">
+                <app-date id="dateOfBirthId" formControlName="dateOfBirth"></app-date>
+              </div>
+            </div>
+          <div class="radio form-group row mb-2 gender-radio" *ngFor="let gender of Genders">
+              <label class="col-md-8 gender-radio"> 
+              {{gender}}
+              </label>
+              <input type="radio" class="test-radio" formControlName="gender"
+              [value] ="gender">
+          </div>
+          <div class="form-group row mb-2">         
+              <div class="col-md-8">
+                <input class="form-control" id="emailId" type="text" placeholder="Email (required)" formControlName="email"/>
+              </div>
+            </div>
+          <div class="form-group row mb-2">
+              <div class="col-md-8">
+                <input class="form-control" id="UserNameId" type="text" placeholder="User Name (required)" formControlName="userName"/>
+              </div>
+            </div>
+
+            <div formGroupName="passwords">
+                <div class="form-group row mb-2">
+                    <div class="col-md-6">
+                      <input class="form-control" id="PasswordId" type="password" placeholder="Password (required)" formControlName="password"
+                      [ngClass]="{'is-invalid': passwords.errors || ((registerForm.get('passwords.password').touched || registerForm.get('passwords.password').dirty
+                      ) && !registerForm.get('passwords.password').valid) }"/>
+                    </div>
+                  </div>
+                  <span class="invalid-feedback">
+                       <span *ngIf="registerForm.get('passwords.password').errors?.required">
+                        Please enter a password
+                      </span>
+                      <span *ngIf="registerForm.get('passwords.password').errors?.minLength">
+                         <p>Password must be minimum of 6 characters</p> 
+                        </span>
+                  </span>
+                  <div class="form-group row mb-2">               
+                      <div class="col-md-6">
+                        <input class="form-control" id="ConfirmPasswordId" type="password" placeholder="Re-enter Password" formControlName="confirmPassword"
+                        [ngClass]="{'is-invalid': passwords.errors || ((registerForm.get('passwords.confirmPassword').touched || registerForm.get('passwords.confirmPassword').dirty
+                      ) && !registerForm.get('passwords.confirmPassword').valid) }"/>
+                      </div>
+                  </div>
+                  <span class="invalid-feedback">
+                      <span *ngIf="registerForm.get('passwords.confirmPassword').errors?.required">
+                       Please enter a password
+                     </span>
+                     <span *ngIf="registerForm.get('passwords').errors?.passwordNotEqual">
+                       Password must be the same as Confirm Password
+                     </span>
+                     <span *ngIf="registerForm.get('passwords.confirmPassword').errors?.minLength">
+                        <p>Password must be minimum of 6 characters</p> 
+                       </span>
+                 </span>
+            </div>
+              <div class="form-group row mb-2">
+                  <div class="col-md-8">
+                      <select class="form-control" id="selectRecoveryId" type="" placeholder="Select a password recovery question (required)" formControlName="recoveryQuestion">
+                          <option value="null" disabled="true" [selected]="true">Please select a Password Recovery Question (required)</option>
+                        <option *ngFor="let recoveryQue of recoveryQuestions" [ngValue]="recoveryQue">{{recoveryQue}}</option>
+                      </select>
+                    </div>
+                    <div class="mb-2 secret-Answer">               
+                        <div class="col-md-12 secret-Answer">
+                          <input class="form-control test-radio" id="secretAnswerId" type="text" placeholder="Enter a secret Answer" formControlName="secretAnswer"/>
+                        </div>
+                    </div>
+              </div>
+
+             
+              <div class="form-group row mb-2">        
+                  <div class="col-md-8">
+                    <input class="form-control" id="AddressLine1Id" type="text" placeholder="Address Line 1 (required)" formControlName="addressLine1"/>
+                  </div>
+                </div>
+                <div class="form-group row mb-2">
+         
+                    <div class="col-md-8">
+                      <input class="form-control" id="AddressLine2Id" type="text" placeholder="Address Line 2 (required)" formControlName="addressLine2"/>
+                    </div>
+                  </div>
+                  <div class="form-group row mb-2">
+         
+                      <div class="col-md-8">
+                        <input class="form-control" id="AddressLine3Id" type="text" placeholder="Address Line 3" formControlName="addressLine3"/>
+                      </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <div class="col-md-8">
+                          <input class="form-control" id="cityId" type="text" placeholder="City (required)" formControlName="city"/>
+                        </div>
+                      </div>
+                      <div class="form-group row mb-2">
+                          <div class="col-md-8">
+                            <input class="form-control" id="countyId" type="text" placeholder="County (required)" formControlName="county"/>
+                          </div>
+                        </div>
+                        <div class="form-group row mb-2">
+                            <div class="col-md-8">
+                              <input class="form-control" id="postcodeId" type="text" placeholder="Post Code (required)" formControlName="postCode"/>
+                            </div>
+                          </div>
+                          <div class="form-group row mb-2">
+                              <div class="col-md-8">
+                                <select class="form-control" id="selectId" type="" placeholder="Country (required)" formControlName="countrys">
+                                    <option value="null" disabled="true" [selected]="true">Please select a country (required)</option>
+                                  <option *ngFor="let country of Countries" [ngValue]="country">{{country.description}}</option>
+                                </select>
+                              </div>
+                            </div>
+                <button class="signup btn-success" type="submit">
+                    Sign Up
+                </button>
+              
+        </form>
+        <div class="col-md-2">
+          <div class="register-legal">
+              <p>By clicking Sign Up, you agree to our Terms. Learn how we collect, use and 
+                share your data in our Data Policy and how we use cookies and similar technology in our Cookie Policy. 
+                You may receive SMS notifications from us and can opt out at any time.</p>
+          </div>
+        </div>
+  </div>
+  
+</div>

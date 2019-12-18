@@ -1,0 +1,26 @@
+<div class="container stackem">
+  <div class="row dob-label">
+   <p>Birthday</p>
+  </div>
+  <div class="row">
+    <div class="col-md-1 dob-space"> 
+      <select (change)="changeDayValue($event.target.value)">
+           <option value="null" disabled="true" [selected]="true">Day</option>
+        <option *ngFor="let day of days">{{day}}</option>
+      </select>
+    </div>
+    <div class="col-md-1 dob-space"> 
+      <select (change)="changeMonthValue($event.target.value)">
+          <option value="null" disabled="true" [selected]="true">Month</option>
+        <option *ngFor="let month of months">{{month}}</option>    
+      </select>
+    </div>
+    <div class="col-md-1"> 
+      <select (change)="changeYearValue($event.target.value)">
+          <option value="null" disabled="true" [selected]="true">Year</option>
+        <option *ngFor="let year of years">{{year}}</option>
+       
+      </select>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+.home{
+    margin-left: 10%;
+    margin-top: 10%;
+}
+.box {   
+    display: inline-flex;
+    margin: 10px;
+ }
+ #innerContent1 {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    background: white;
+    font-size:25px;
+    position: relative;
+    float:left;
+    width: 28%;
+    padding-bottom: 25%;
+    margin-right:8px;
+    background: gray;
+    color: #FFF;
+ }
+ .hgh {
+    border: 4px solid #c4c6ca
+ }
+ .group {
+  overflow:hiden;
+ }
+ .mid{
+ margin-top:200px;
+ margin-left:200px
+ }
+ .home_title
+{
+	font-size: 100px;
+	font-weight: 200;
+	margin-left: 20%;
+	line-height: 1.2;
+	margin-top: 50px;
+}
+.home_subtitle
+{
+	font-size: 16px;
+	font-weight: 500;
+	margin-left: 20%;
+	margin-top: -6px;
+}
+
+.search {
+   width: 70%;
+   position: relative;
+   display: flex;
+ }
+ 
+ .searchTerm {
+   width: 100%;
+   border: 3px solid black;
+   border-right: none;
+   padding: 5px;
+   height: 45px;
+   border-radius: 5px 0 0 5px;
+   outline: none;
+   color: #9DBFAF;
+ }
+
+ .searchTerm:focus {
+   color:black;
+ }
+ 
+ .searchButton {
+   width: 40px;
+   height: 46px;
+   border: 1px solid black;
+   background: black;
+   text-align: center;
+   color: #fff;
+   border-radius: 0 5px 5px 0;
+   cursor: pointer;
+   font-size: 20px;
+ }
+ 
+ .searchregion {
+   margin-top: 10px;
+   margin-bottom: 30px;
+ }
+ .top {
+   margin-left: 20%;
+   position: relative;
+   margin-top: 70px;
+ }
